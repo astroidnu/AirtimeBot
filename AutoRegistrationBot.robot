@@ -4,13 +4,18 @@ Library           OperatingSystem
 *** Keywords ***
 Set Environment Variable   webdriver.gecko.driver  geckodriver.exe
 *** Variables ***
+#Your Browser
 ${Browser}        Firefox
+#Testing URL
 ${SiteUrl}        https://twitter.com/signup
+#Registration Data
 ${FullName}       Dyno Bot  
 ${Email}          test_developer13@yahoo.com
 ${Password}       !q@w3e4r5t 
+#Time Delay
 ${Delay}          5s  
 *** Keywords *** 
+#Feel free for add any Keywords here
 Open page
     open browser    ${SiteUrl}      ${browser}     
     Maximize Browser Window
@@ -26,6 +31,7 @@ Check tailor twitter checkbox and submit registration
 submit register
     Click Element  xpath=//input[@id='submit_button']
 *** Test Cases ***
+#Focus in Test case 
 Twitter Registration Flow 
     Open Page   
     fill registration form
