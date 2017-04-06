@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20170406 17:01:43.705" generator="Robot 3.0.2 (Python 2.7.11 on win32)">
-<suite source="D:\robotframework\TwitterDynoBot\AutoRegistrationBot.robot" id="s1" name="AutoRegistrationBot">
-<test id="s1-t1" name="Twitter Registration Flow">
+<robot generated="20170406 17:28:46.265" generator="Robot 3.0.2 (Python 2.7.11 on win32)">
+<suite source="D:\robotframework\TwitterDynoBot\AutoLoginBot.robot" id="s1" name="AutoLoginBot">
+<test id="s1-t1" name="Twitter Login Flow">
 <kw name="Open page">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to given URL.</doc>
@@ -9,93 +9,77 @@
 <arg>${SiteUrl}</arg>
 <arg>${browser}</arg>
 </arguments>
-<msg timestamp="20170406 17:01:43.801" level="INFO">Opening browser 'Firefox' to base url 'https://twitter.com/signup'</msg>
-<status status="PASS" endtime="20170406 17:01:51.408" starttime="20170406 17:01:43.801"></status>
+<msg timestamp="20170406 17:28:46.375" level="INFO">Opening browser 'Firefox' to base url 'https://twitter.com/?lang=en'</msg>
+<status status="PASS" endtime="20170406 17:28:57.285" starttime="20170406 17:28:46.375"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20170406 17:01:51.456" starttime="20170406 17:01:51.408"></status>
+<status status="PASS" endtime="20170406 17:28:57.363" starttime="20170406 17:28:57.285"></status>
 </kw>
-<status status="PASS" endtime="20170406 17:01:51.456" starttime="20170406 17:01:43.801"></status>
+<status status="PASS" endtime="20170406 17:28:57.363" starttime="20170406 17:28:46.375"></status>
 </kw>
-<kw name="fill registration form">
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
+<kw name="Find login button">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
 <arguments>
-<arg>id=full-name</arg>
-<arg>${FullName}</arg>
+<arg>xpath=//a[@href='/login']</arg>
 </arguments>
-<msg timestamp="20170406 17:01:51.457" level="INFO">Typing text 'Dyno Bot' into text field 'id=full-name'</msg>
-<status status="PASS" endtime="20170406 17:01:51.522" starttime="20170406 17:01:51.457"></status>
+<msg timestamp="20170406 17:28:57.364" level="INFO">Clicking element 'xpath=//a[@href='/login']'.</msg>
+<status status="PASS" endtime="20170406 17:28:57.627" starttime="20170406 17:28:57.364"></status>
 </kw>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>id=email</arg>
-<arg>${Email}</arg>
-</arguments>
-<msg timestamp="20170406 17:01:51.523" level="INFO">Typing text 'test_developer13@yahoo.com' into text field 'id=email'</msg>
-<status status="PASS" endtime="20170406 17:01:51.588" starttime="20170406 17:01:51.523"></status>
+<status status="PASS" endtime="20170406 17:28:57.627" starttime="20170406 17:28:57.363"></status>
 </kw>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>id=password</arg>
-<arg>${Password}</arg>
-</arguments>
-<msg timestamp="20170406 17:01:51.589" level="INFO">Typing text '!q@w3e4r5t' into text field 'id=password'</msg>
-<status status="PASS" endtime="20170406 17:01:51.626" starttime="20170406 17:01:51.588"></status>
-</kw>
-<status status="PASS" endtime="20170406 17:01:51.626" starttime="20170406 17:01:51.457"></status>
-</kw>
-<kw name="Check tailor twitter checkbox and submit registration">
+<kw name="Fill Login Form">
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>${Delay}</arg>
 </arguments>
-<msg timestamp="20170406 17:01:56.626" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" endtime="20170406 17:01:56.626" starttime="20170406 17:01:51.626"></status>
+<msg timestamp="20170406 17:29:00.628" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170406 17:29:00.628" starttime="20170406 17:28:57.628"></status>
 </kw>
-<kw name="Get Value" library="Selenium2Library">
-<doc>Returns the value attribute of element identified by `locator`.</doc>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
-<arg>xpath=//input[@name='user[use_cookie_personalization]']</arg>
+<arg>name=session[username_or_email]</arg>
+<arg>${Email}</arg>
 </arguments>
-<assign>
-<var>${input_value}</var>
-</assign>
-<msg timestamp="20170406 17:01:56.676" level="INFO">${input_value} = 1</msg>
-<status status="PASS" endtime="20170406 17:01:56.676" starttime="20170406 17:01:56.627"></status>
+<msg timestamp="20170406 17:29:00.630" level="INFO">Typing text 'test_developer13@yahoo.com' into text field 'name=session[username_or_email]'</msg>
+<status status="PASS" endtime="20170406 17:29:00.729" starttime="20170406 17:29:00.629"></status>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
-<arg>'${input_value}' == '1'</arg>
-<arg>submit register</arg>
+<arg>name=session[password]</arg>
+<arg>${Password}</arg>
 </arguments>
-<kw name="submit register">
+<msg timestamp="20170406 17:29:00.730" level="INFO">Typing text '!q@w3e4r5t' into text field 'name=session[password]'</msg>
+<status status="PASS" endtime="20170406 17:29:00.800" starttime="20170406 17:29:00.730"></status>
+</kw>
+<status status="PASS" endtime="20170406 17:29:00.800" starttime="20170406 17:28:57.627"></status>
+</kw>
+<kw name="Click login button">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${Delay}</arg>
+</arguments>
+<msg timestamp="20170406 17:29:03.801" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170406 17:29:03.802" starttime="20170406 17:29:00.801"></status>
+</kw>
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
-<arg>xpath=//input[@id='submit_button']</arg>
+<arg>xpath=//input[@value='Log in']</arg>
 </arguments>
-<msg timestamp="20170406 17:01:56.677" level="INFO">Clicking element 'xpath=//input[@id='submit_button']'.</msg>
-<status status="PASS" endtime="20170406 17:01:56.716" starttime="20170406 17:01:56.677"></status>
+<msg timestamp="20170406 17:29:03.803" level="INFO">Clicking element 'xpath=//input[@value='Log in']'.</msg>
+<status status="PASS" endtime="20170406 17:29:04.484" starttime="20170406 17:29:03.802"></status>
 </kw>
-<status status="PASS" endtime="20170406 17:01:56.716" starttime="20170406 17:01:56.676"></status>
+<status status="PASS" endtime="20170406 17:29:04.484" starttime="20170406 17:29:00.800"></status>
 </kw>
-<status status="PASS" endtime="20170406 17:01:56.716" starttime="20170406 17:01:56.676"></status>
-</kw>
-<kw type="teardown" name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20170406 17:01:56.797" starttime="20170406 17:01:56.716"></status>
-</kw>
-<status status="PASS" endtime="20170406 17:01:56.797" starttime="20170406 17:01:51.626"></status>
-</kw>
-<status status="PASS" endtime="20170406 17:01:56.797" critical="yes" starttime="20170406 17:01:43.800"></status>
+<status status="PASS" endtime="20170406 17:29:04.484" critical="yes" starttime="20170406 17:28:46.374"></status>
 </test>
-<status status="PASS" endtime="20170406 17:01:56.799" starttime="20170406 17:01:43.706"></status>
+<status status="PASS" endtime="20170406 17:29:04.486" starttime="20170406 17:28:46.267"></status>
 </suite>
 <statistics>
 <total>
@@ -105,7 +89,7 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="AutoRegistrationBot" pass="1">AutoRegistrationBot</stat>
+<stat fail="0" id="s1" name="AutoLoginBot" pass="1">AutoLoginBot</stat>
 </suite>
 </statistics>
 <errors>
