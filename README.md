@@ -9,7 +9,7 @@ Automation Testing for registration and login on twitter
 
 #Requirement 
 
-- >= Python 2.7 
+- Python 2.7 or higher 
 - Pip python 
 - Geckodriver ( Web driver )
 
